@@ -1,0 +1,33 @@
+:root {
+  --pc: #98626f;
+  --sc: #cb9c7d;
+  --tc1: #ebd3ad;
+  --tc2: #f3e3c9;
+}
+@font-face {
+  font-family: "Garamond";
+  font-weight: 200;
+  src: url(Garamond\ Regular.ttf);
+}
+@font-face {
+  font-family: "Garamond";
+  font-weight: 500;
+  src: url(Garamond\ Roman.ttf);
+}
+@font-face {
+  font-family: "Garamond";
+  font-weight: 700;
+  src: url(Garamond\ Bold\ font.ttf);
+}
+* {
+  box-sizing: border-box;
+  /* margin: 0;
+    padding: 0; */
+}
+html,
+body {
+  font-family: sans-serif;
+  font-weight: 200;
+  height: 100%;
+  width: 100%;
+}

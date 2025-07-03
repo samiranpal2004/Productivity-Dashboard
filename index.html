@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productivity Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="shortcut icon" href="favicon-16x16.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="bg-gray-950">
+    <div class="bg-gray-950 text-white h-[100%] w-[100%] px-16" id="main">
+      <section class="" id="dashboard">
+        <header class="py-8 flex justify-between items-center">
+          <h1 class="text-3xl font-medium mt-5">Productivity Dashboard</h1>
+          <button
+            class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-gray-800 duration-200"
+          >
+            Change Theme
+          </button>
+        </header>
+        <div
+          class="flex justify-between px-10 py-3 h-50 outline outline-1.5 outline-gray-800 text-white rounded"
+          id="time-atmos"
+        >
+          <div class="flex flex-col gap-2" id="timings">
+            <p class="text-3xl" id="date">23 June, 2025</p>
+            <p class="text-5xl font-bold" id="day-time">Monday, 12:00 PM</p>
+            <p class="mt-8 text-xl text-gray-500 animate-pulse" id="area">
+              Loading...
+            </p>
+          </div>
+          <div class="mr-5 transition-all duration-500" id="atmos">
+            <!-- Temperature -->
+            <p
+              class="mt-2 text-4xl font-bold animate-pulse text-gray-500"
+              id="temp"
+            >
+              Loading...
+            </p>
+
+            <!-- Weather icon and name -->
+            <div class="flex items-center gap-3">
+              <img
+                class="h-10 bg-gray-500 animate-pulse"
+                id="wIcon"
+                src=""
+                alt=""
+                loading="lazy"
+              />
+              <p class="text-3xl animate-pulse text-gray-500" id="weth">
+                Fetching...
+              </p>
+            </div>
+
+            <!-- Additional data -->
+            <p class="mt-4 animate-pulse text-gray-500" id="preci">
+              Precipitation: --
+            </p>
+            <p class="animate-pulse text-gray-500" id="humidity">
+              Humidity: --
+            </p>
+            <p class="animate-pulse text-gray-500" id="wind">Wind: --</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap justify-between mt-8" id="cards">
+          <div
+            class="h-80 w-60 shadow-lg/30 shadow-gray-200/50 cursor-pointer overflow-hidden relative outline-1.5 outline-gray-800 text-white rounded flex flex-col justify-between hover:scale-107 duration-300"
+            id="todo"
+          >
+            <img
+              class="object-cover w-full h-full"
+              src="https://images.unsplash.com/photo-1648457257285-cfbc3781cc54?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8M2R8ZW58MHx8MHx8fDA%3D"
+              alt=""
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+            ></div>
+            <p
+              class="text-right text-2xl font-bold absolute right-0 bottom-0 mb-4 mr-5"
+            >
+              To Do List
+            </p>
+          </div>
+          <div
+            class="h-80 w-60 shadow-lg/30 shadow-gray-200/50 cursor-pointer overflow-hidden relative outline-1.5 outline-gray-800 text-white rounded flex flex-col justify-between hover:scale-107 duration-300"
+            id="planner"
+          >
+            <img
+              class="object-cover"
+              src="https://images.unsplash.com/photo-1634025151266-4773d6189169?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fDNkfGVufDB8fDB8fHww"
+              alt=""
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+            ></div>
+            <p
+              class="text-right text-2xl font-bold absolute right-0 bottom-0 mb-4 mr-5"
+            >
+              Daily Planner
+            </p>
+          </div>
+          <div
+            class="h-80 w-60 cursor-pointer shadow-lg/30 shadow-gray-200/50 overflow-hidden relative outline-1.5 outline-gray-800 text-white rounded flex flex-col justify-between hover:scale-107 duration-300"
+            id="motivation"
+          >
+            <img
+              class="object-cover"
+              src="https://plus.unsplash.com/premium_photo-1710962184909-f9f8dc2c9f5f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fDNkfGVufDB8fDB8fHww"
+              alt=""
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+            ></div>
+            <p
+              class="text-right text-2xl font-bold absolute right-0 bottom-0 mb-4 mr-5"
+            >
+              Motivation
+            </p>
+          </div>
+          <div
+            class="h-80 w-60 shadow-lg/30 shadow-gray-200/50 cursor-pointer overflow-hidden relative outline-1.5 outline-gray-800 text-white rounded flex flex-col justify-between hover:scale-107 duration-300"
+            id="pomodoro"
+          >
+            <img
+              class="object-cover"
+              src="https://images.unsplash.com/photo-1745837846302-9b3534358ee8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHNhbmQlMjB0aW1lcnxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+            ></div>
+            <p
+              class="text-right text-2xl font-bold absolute right-0 bottom-0 mb-4 mr-5"
+            >
+              Pomodoro Timer
+            </p>
+          </div>
+          <div
+            class="h-80 w-60 shadow-lg/30 shadow-gray-200/50 cursor-pointer overflow-hidden relative outline-1.5 outline-gray-800 text-white rounded flex flex-col justify-between hover:scale-107 duration-300"
+            id="goal"
+          >
+            <img
+              class="object-cover"
+              src="https://plus.unsplash.com/premium_photo-1695752616799-545711db139f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGdvYWxzJTIwM2R8ZW58MHx8MHx8fDA%3D"
+              alt=""
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"
+            ></div>
+            <p
+              class="text-right text-2xl font-bold absolute right-0 bottom-0 mb-4 mr-5"
+            >
+              Goals
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="hidden" id="todoSection">
+        <div class="flex justify-between items-center" id="todoHead">
+          <h1 class="py-8 text-5xl font-bold">
+            Your Personalized Task Manager
+          </h1>
+          <button
+            class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-red-800 duration-200"
+            id="todoClose"
+          >
+            Close
+          </button>
+        </div>
+        <div class="flex justify-between" id="todoBody">
+          <div
+            class="flex flex-col gap-5 mt-4 w-110 p-5 bg-gray-900 rounded-lg"
+            id="todoLeft"
+          >
+            <input
+              type="text"
+              id="todoTask"
+              placeholder="Add a new task..."
+              class="mt-5 w-full h-12 px-4 text-lg bg-gray-800 text-white rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
+            />
+            <input
+              type="text"
+              id="todoDesc"
+              placeholder="Add task description..."
+              class="w-full h-80 px-4 pt-4 text-left align-top text-lg bg-gray-800 text-white rounded focus:outline-none focus:ring-2 focus:ring-gray-600"
+            />
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                name=""
+                id="todoCheck"
+                class="w-4 h-4 cursor-pointer"
+              />
+              <span>Mark as Important</span>
+            </label>
+            <button
+              class="w-50 bg-green-700 rounded-lg py-2 cursor-pointer active:scale-[0.94] duration-200"
+              id="addTaskBtn"
+            >
+              Add Your Task
+            </button>
+          </div>
+          <div class="w-200 p-10 bg-gray-900 rounded-lg mt-4" id="todoRight">
+            <h1 class="text-center text-xl font-semibold">Your Tasks</h1>
+            <div class="mt-10" id="allTasks"></div>
+          </div>
+        </div>
+      </section>
+      <section class="hidden" id="plannerSection">
+        <div class="flex justify-between items-center" id="plannerHead">
+          <h1 class="py-8 text-5xl font-bold">
+            Plan your Day to be more Productive
+          </h1>
+          <button
+            class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-red-800 duration-200"
+            id="plannerClose"
+          >
+            Close
+          </button>
+        </div>
+        <div
+          class="h-full overlay w-full p-5 flex flex-wrap justify-between gap-5 bg-gray-900 rounded-lg"
+          id="plannerBody"
+        ></div>
+      </section>
+      <section class="hidden" id="motivationSection">
+        <div class="flex justify-between items-center" id="motivationHead">
+          <h1 class="py-8 text-5xl font-bold">
+            Get Motivated with Daily Quotes
+          </h1>
+          <button
+            class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-red-800 duration-200"
+            id="motivationClose"
+          >
+            Close
+          </button>
+        </div>
+        <div
+          class="ml-[20%] mt-20 flex flex-col items-center justify-center w-[70%] max-w-4xl h-auto bg-gray-900 rounded-lg p-10 gap-5"
+          id="motivationBody"
+        >
+          <h1 class="text-4xl font-bold">Quote of the Day</h1>
+          <p class="text-2xl text-center mt-5" id="quoteText">....</p>
+          <p class="text-lg mt-10 text-gray-500" id="quoteAuthor">- Author</p>
+        </div>
+      </section>
+      <section class="hidden" id="pomodoroSection">
+        <div class="flex justify-between items-center" id="pomodoroHead">
+          <h1 class="py-8 text-5xl text-gray-200 font-bold">
+            Master Your Time
+          </h1>
+          <button
+            class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-red-800 duration-200"
+            id="pomodoroClose"
+          >
+            Close
+          </button>
+        </div>
+        <div id="pomoBody">
+          <div
+            class="flex items-center justify-center gap-10 mt-5"
+            id="pomoNav"
+          >
+            <div
+              class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-10 py-1.5 px-3 cursor-pointer bg-gray-900 duration-200"
+              id="mainPomo"
+            >
+              Pomodoro
+            </div>
+            <div
+              class="rounded-lg active:scale-[0.94] h-10 py-1.5 px-3 cursor-pointer hover:bg-gray-900 duration-200"
+              id="shortBreak"
+            >
+              Short Break
+            </div>
+            <div
+              class="rounded-lg active:scale-[0.94] h-10 py-1.5 px-3 cursor-pointer hover:bg-gray-900 duration-200"
+              id="longBreak"
+            >
+              Long Break
+            </div>
+          </div>
+          <div
+            class="flex flex-col items-center justify-center mt-10 gap-3"
+            id="pomoTimer"
+          >
+            <div class="text-6xl font-bold text-red-400" id="pomoTime">
+              25:00
+            </div>
+            <div class="flex items-center gap-5 mt-2">
+              <button
+                id="pomoStartBtn"
+                class="text-xl font-semibold rounded text-gray-200 active:scale-[0.94] outline outline-1.5 outline-gray-800 h-10 w-30 py-1.5 px-3 cursor-pointer bg-gray-900 hover:bg-gray-800 duration-200"
+              >
+                START
+              </button>
+              <button
+                id="pomoResetBtn"
+                class="hidden hover:scale-[0.94] hover:text-xl duration-200"
+              >
+                <i class="ri-loop-right-line"></i>
+              </button>
+            </div>
+            <p class="text-xl mt-6" id="currentTask">Task 1</p>
+            <div class="mt-4" id="inputTask">
+              <input
+                class="outline-none text-xl text-gray-200"
+                type="text"
+                placeholder="Task"
+              />
+              <button
+                class="rounded active:scale-[0.94] outline outline-1.5 outline-gray-800 h-10 py-1.5 px-3 cursor-pointer hover:bg-gray-900 duration-200"
+              >
+                <i class="mr-2 ri-add-circle-fill"></i>Add Task
+              </button>
+            </div>
+            <div class="bg-gray-800 w-[30%] h-[0.3px]"></div>
+            <div class="flex flex-col gap-2 w-[30%]" id="taskList">
+              <!-- <label class="flex items-center gap-4 p-3 bg-gray-900 outline outline-1 outline-gray-800 rounded">
+                <input class="w-5 h-5 rounded-full appearance-none outline outline-blue-900 outline-2 checked:bg-indigo-800 cursor-pointer" type="checkbox" />
+                <p class="font-semibold text-gray-200">Task 1</p>
+                <button class="ml-auto delete-btn cursor-pointer rounded active:scale-[0.94] duration-200 h-8 px-2 py-1 text-red-400 hover:text-red-600"><i class="ri-delete-bin-line"></i></button>
+              </label> -->
+            </div>
+
+            <p class="mt-5">Add atmost 3 Tasks</p>
+          </div>
+          <div
+            class="hidden flex flex-col items-center justify-center mt-10 gap-3"
+            id="shortTimer"
+          >
+            <div class="text-6xl font-bold text-red-400" id="shortTime">
+              05:00
+            </div>
+            <div class="flex items-center gap-5 mt-2">
+              <button
+                id="sbStartBtn"
+                class="text-xl font-semibold rounded text-gray-200 active:scale-[0.94] outline outline-1.5 outline-gray-800 h-10 w-30 py-1.5 px-3 cursor-pointer bg-gray-900 hover:bg-gray-800 duration-200"
+              >
+                START
+              </button>
+            </div>
+            <div class="flex gap-5 mt-5 items-center justify-center">
+              <p>If you want to chill with some Music</p>
+              <button
+                class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-blue-600 duration-200"
+              >
+                <a href="https://samiranpal2004.github.io/Music-Player/"
+                  >Click Here</a
+                >
+              </button>
+            </div>
+          </div>
+          <div
+            class="hidden flex flex-col items-center justify-center mt-10 gap-3"
+            id="longTimer"
+          >
+            <div class="text-6xl font-bold text-red-400" id="longTime">
+              30:00
+            </div>
+            <div class="flex items-center gap-5 mt-2">
+              <button
+                id="lbStartBtn"
+                class="text-xl font-semibold rounded text-gray-200 active:scale-[0.94] outline outline-1.5 outline-gray-800 h-10 w-30 py-1.5 px-3 cursor-pointer bg-gray-900 hover:bg-gray-800 duration-200"
+              >
+                START
+              </button>
+            </div>
+            <div class="flex gap-5 mt-5 items-center justify-center">
+              <p>If you want to chill with some Music</p>
+              <button
+                class="rounded-lg active:scale-[0.94] outline outline-1.5 outline-gray-800 h-11 px-3 cursor-pointer hover:bg-blue-600 duration-200"
+              >
+                <a href="https://samiranpal2004.github.io/Music-Player/"
+                  >Click Here</a
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="4"></section>
+    </div>
+    <script src="script.js"></script>
+    <script src="todo.js"></script>
+    <script src="planner.js"></script>
+    <script src="motivation.js"></script>
+    <script src="pomodoro.js"></script>
+  </body>
+</html>
